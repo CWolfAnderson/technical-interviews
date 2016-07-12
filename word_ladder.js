@@ -8,33 +8,65 @@ One shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog", the pr
 */
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-var letter;
-for (var i = 0; i < alphabet.length; i++) {
-  letter = alphabet.charAt(i);
-}
+var length = wordLadder("hit", "cog", ["hot","dot","dog","lot","log"]);
 
-var ladder = wordLadder("hit", "cog", ["hot","dot","dog","lot","log"]);
-
-console.log("ladder: " + ladder.join(" -> "));
+console.log(length);
 
 function wordLadder(start, end, dict) {
   
-  var sequence = [start];  
+  // breadth first search
+  var queue = [Node(start, 1)];
   
-  var startChars = start.split("");
-  var endChars = end.split("");
+  dict.push(end);
   
-  // find which chars are wrong
-  var wrongChars = [];
-  for (var i = 0; i < startChars.length; i++) {
-    if (startChars[i] !== endChars[i]) {
-      wrongChars.push(i);
+  var top;
+  var word;
+  var arr;
+  var c;
+  var temp;
+  var newWord;
+  
+  while (queue.length > 0) {
+    top = queue.shift();
+    word = top.word;
+    
+    if (word === end) {
+      return top.numSteps;
     }
+    
+    arr = word.split("");
+    
+    for (var i = 0; i < arr.length; i++) {      
+      for (var j = 0; j < alphabet.length; j++) {
+        c = alphabet.charAt(j);
+        temp = arr[i];
+        
+        // swap out letter with alphabet letter
+        if (arr[i] !== c) {
+          arr[i] = c;
+        }
+        
+        newWord = arr.join("");
+        
+        if (dict.indexOf(newWord) > -1) {
+          queue.push(Node(newWord, top.numSteps+1));
+          dict.splice(dict.indexOf(newWord), 1);
+        }
+        
+        arr[i] = temp;
+      }
+      
+    }
+    
   }
   
+  return 0;
   
-  
-  sequence.push(end);
-  return sequence;
-  
+}
+
+function Node(w, ns) {
+  return {
+    word: w,
+    numSteps: ns
+  };
 }
