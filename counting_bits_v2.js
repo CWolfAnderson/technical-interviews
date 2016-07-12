@@ -29,7 +29,7 @@ For num = 5 you should return [0,1,1,2,1,2].
 ...
 */
 
-var maxBits = 8;
+var maxBits = 32;
 
 /*
 4 -> 8

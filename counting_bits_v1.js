@@ -29,7 +29,7 @@ For num = 5 you should return [0,1,1,2,1,2].
 ...
 */
 
-var maxBits = 4;
+var maxBits = 32;
 
 var numBits = countBits(5);
 
