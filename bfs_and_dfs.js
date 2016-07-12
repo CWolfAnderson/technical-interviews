@@ -40,7 +40,7 @@ function bfs(root) {
   var queue = [];
   
   root.visited = true;
-  queue.unshift(root);
+  queue.push(root);
   
   var current;
   
