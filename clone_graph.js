@@ -25,6 +25,14 @@ n3.neighbors = [n1, n2];
 n4.neighbors = [n2];
 n5.neighbors = [n1, n2];
 
+/*
+      n1 ------ n3 ------- n2 ------- n4
+      |                     |
+      |                     |
+      |                     |
+      n5--------------------
+*/
+
 var connected = clone(n1);
 
 console.log(connected);
@@ -36,15 +44,15 @@ function clone(root) {
   var queue = [];
   
   root.visited = true;
-  queue.unshift(root);
+  queue.push(root);
   cloned.push(deepCopy(root));
   
   var current;
   
   while (queue.length > 0) {
     current = queue.shift();
-//     console.log(current.data);
-
+    // console.log(current.data);
+    
     current.neighbors.forEach(function(neighbor) {
       if (!neighbor.hasOwnProperty("visited")) {
         neighbor.visited = true;
