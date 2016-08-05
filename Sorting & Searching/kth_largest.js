@@ -2,11 +2,15 @@
 Given a list, return the kth largest element.
 */
 
+"use strict";
+
 var array = [1, 10, 6, 5, 9, 13, 12, 4, 7, 11];
 
-console.log(kthLargest(array, 5)); // 10
+let kthLargest = getKthLargest(array, 5);
 
-function kthLargest(arr, k) {
+console.log(`5th largest element of ${array} is ${kthLargest}`);
+
+function getKthLargest(arr, k) {
 
   var left = [];
   var right = [];
@@ -15,8 +19,8 @@ function kthLargest(arr, k) {
 
   while (true) {
 
-    pivot = arr[parseInt(arr.length / 2)];
-    // console.log('pivot: ' + pivot);
+    pivot = arr[Math.floor(arr.length / 2)];
+    console.log(`pivot ${pivot}`);
     for (var i = 0; i < arr.length; i++) {
       if (arr[i] < pivot) {
         left.push(arr[i]);
