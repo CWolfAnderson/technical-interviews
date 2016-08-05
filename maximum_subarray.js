@@ -9,16 +9,16 @@ function maxSubarray(nums) {
   if (nums.length === 0) return -1;
   
   var curMax = nums[0];
-  var maximum = nums[0];
+  var realMax = nums[0];
   var current;
   
   for (var i = 1; i < nums.length; i++) {
     current = nums[i];
     curMax = max(current, curMax + current);
-    if (curMax > maximum) maximum = curMax;
+    if (curMax > realMax) realMax = curMax;
   }
   
-  return maximum;
+  return realMax;
 }
 
 function max(num1, num2) {  

@@ -34,28 +34,31 @@ function wordLadder(start, end, dict) {
       return top.numSteps;
     }
     
-    arr = word.split("");
+    arr = word.split(""); // ["h", "i", "t"]
     
     for (var i = 0; i < arr.length; i++) {      
       for (var j = 0; j < alphabet.length; j++) {
         c = alphabet.charAt(j);
-        temp = arr[i];
+        temp = arr[i]; // "h"
         
         // swap out letter with alphabet letter
         if (arr[i] !== c) {
           arr[i] = c;
         }
         
-        newWord = arr.join("");
+        newWord = arr.join(""); // "ait"
         
+        // if new word is in the dictionary, add it to the queue
+        // then remove the word from the dictionary
         if (dict.indexOf(newWord) > -1) {
           queue.push(Node(newWord, top.numSteps+1));
           dict.splice(dict.indexOf(newWord), 1);
         }
         
+        // reinsert the original letter
         arr[i] = temp;
-      }
-      
+        
+      }      
     }
     
   }

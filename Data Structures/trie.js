@@ -13,6 +13,7 @@ TrieNode.prototype.add = function(s) {
   var currentLetter;
   var children;
   
+  // add each letter in s
   for (var i = 0; i < s.length; i++) {
 
     children = current.children;
@@ -32,7 +33,7 @@ TrieNode.prototype.add = function(s) {
     }
     
     current = children[index];
-
+    
     if (i === s.length-1) current.endOfWord = true;
   }
   
@@ -43,6 +44,7 @@ TrieNode.prototype.isWord = function(s) {
   var currentLetter;
   var children;
   
+  // add each letter in s
   for (var i = 0; i < s.length; i++) {
     
     children = current.children;
