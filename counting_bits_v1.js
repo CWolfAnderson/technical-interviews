@@ -29,20 +29,20 @@ For num = 5 you should return [0,1,1,2,1,2].
 ...
 */
 
-var maxBits = 32;
+let maxBits = 32;
 
-var numBits = countBits(5);
+let numBits = countBits(5);
 
 console.log(numBits);
 
 function countBits(n) {
   
-  var bits = [];
-  var count = 0;
+  let bits = [];
+  let count = 0;
   
-  for (var i = 0; i <= n; i++) { // 0    
+  for (let i = 0; i <= n; i++) { // 0    
 
-      var temp = i;
+      let temp = i;
       
       // 8, 4, 2, 1
       if (temp >= 8) {

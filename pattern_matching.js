@@ -11,14 +11,14 @@ Each array index refers to each occurrance of that letter
 "paa" -> [0, 1, 1]
 */
 
-// var pattern = "abc";
-// var dictionary = ["cdf", "too", "hgfdt" ,"paa"];
-// var result = matchPattern(pattern, dictionary);
+// let pattern = "abc";
+// let dictionary = ["cdf", "too", "hgfdt" ,"paa"];
+// let result = matchPattern(pattern, dictionary);
 // console.log(result);
 
-var pattern = "acc";
-var dictionary = ["cdf", "too", "hgfdt" ,"paa"];
-var result = matchPattern(pattern, dictionary);
+let pattern = "acc";
+let dictionary = ["cdf", "too", "hgfdt" ,"paa"];
+let result = matchPattern(pattern, dictionary);
 console.log(result);
 
 function matchPattern(pat, dict) {
@@ -29,12 +29,12 @@ function matchPattern(pat, dict) {
   });
   
   // map words to patterns
-  var patternArr = dict.map(patternMap);
+  let patternArr = dict.map(patternMap);
   
   // map pattern to pattern
-  var pattern = patternMap(pat);
+  let pattern = patternMap(pat);
   
-  var toReturn = [];
+  let toReturn = [];
   patternArr.forEach(function(arr, i) {
     if (arr.join() === pattern.join()) {
       toReturn.push(dict[i]);
@@ -47,10 +47,10 @@ function matchPattern(pat, dict) {
 
 function patternMap(word, i) {
   
-  var wordArr = [];
+  let wordArr = [];
   
-  for(var j = 0; j < word.length; j++) {    
-    var letter = word[j];
+  for(let j = 0; j < word.length; j++) {    
+    let letter = word[j];
     
     if (word.indexOf(letter) < j) {
       wordArr.push(word.indexOf(letter));

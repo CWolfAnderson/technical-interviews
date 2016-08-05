@@ -7,7 +7,7 @@ function Node(d) {
   
 }
 
-var root = new Node(5);
+let root = new Node(5);
 
 root.left = new Node(2);
 root.right = new Node(7);
@@ -18,10 +18,10 @@ console.log(validateBST(root));
 
 function validateBST(root) {      
   
-  var queue = [];
+  let queue = [];
   
   queue.push(root);
-  var current;
+  let current;
   
   while (queue.length > 0) {
         

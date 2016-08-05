@@ -6,25 +6,25 @@ end = "cog"
 dict = ["hot","dot","dog","lot","log"]
 One shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog", the program should return its length 5.
 */
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-var length = wordLadder("hit", "cog", ["hot","dot","dog","lot","log"]);
+let length = wordLadder("hit", "cog", ["hot","dot","dog","lot","log"]);
 
 console.log(length);
 
 function wordLadder(start, end, dict) {
   
   // breadth first search
-  var queue = [Node(start, 1)];
+  let queue = [Node(start, 1)];
   
   dict.push(end);
   
-  var top;
-  var word;
-  var arr;
-  var c;
-  var temp;
-  var newWord;
+  let top;
+  let word;
+  let arr;
+  let c;
+  let temp;
+  let newWord;
   
   while (queue.length > 0) {
     top = queue.shift();
@@ -36,8 +36,8 @@ function wordLadder(start, end, dict) {
     
     arr = word.split(""); // ["h", "i", "t"]
     
-    for (var i = 0; i < arr.length; i++) {      
-      for (var j = 0; j < alphabet.length; j++) {
+    for (let i = 0; i < arr.length; i++) {      
+      for (let j = 0; j < alphabet.length; j++) {
         c = alphabet.charAt(j);
         temp = arr[i]; // "h"
         

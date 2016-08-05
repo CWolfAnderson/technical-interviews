@@ -1,4 +1,4 @@
-var candidates = [
+let candidates = [
   {name: 'Ben', time: 10},
   {name: 'Jen', time: 5},
   {name: 'Ben', time: 9},
@@ -18,13 +18,13 @@ console.log(getTopVote(candidates, 10, 2)); // Ben
 function getTopVote(candidates, time, k) {
 
   // 2 -> Ben & Jen
-  // var histogram = {
+  // let histogram = {
   //   Ben: 2,
   //   Jen: 3,
   //   Tom: 1
   // };
 
-  var count = {};
+  let count = {};
 
   // add to histogram
   candidates.forEach(function(candidate) {
@@ -40,20 +40,20 @@ function getTopVote(candidates, time, k) {
   console.log(count);
 
   // get highest count
-  var highestCount = 0;
-  var highestName;
+  let highestCount = 0;
+  let highestName;
 
-  var counts = [];
-  for (var name in count) {
+  let counts = [];
+  for (let name in count) {
     counts.push(count[name]);
   }
 
   counts = counts.sort().reverse();
 
-  var names = [];
+  let names = [];
 
-  for (var i = 0; i < k; i++) {
-    for (var name in count) {
+  for (let i = 0; i < k; i++) {
+    for (let name in count) {
       if (count[name] === counts[i]) {
         names.push(name);
       }
@@ -61,7 +61,7 @@ function getTopVote(candidates, time, k) {
   }
 
 
-  // for (var name in count) {
+  // for (let name in count) {
   //   if (count[name] > highestCount) {
   //     highestName = name;
   //     highestCount = count[name];

@@ -29,7 +29,7 @@ For num = 5 you should return [0,1,1,2,1,2].
 ...
 */
 
-var maxBits = 32;
+let maxBits = 32;
 
 /*
 4 -> 8
@@ -37,26 +37,26 @@ var maxBits = 32;
 2^n-1
 */
 
-var numBits = countBits(5);
+let numBits = countBits(5);
 
 console.log(numBits);
 
 function countBits(n) {
   
-  var bits = [];
-  var count = 0;
+  let bits = [];
+  let count = 0;
   
   // create array of bit values (i.e. [128, 64, 32, 16, 8, 4, 2, 1])
-  var bitValues = [];
-  var leftMostBit = Math.pow(2, maxBits-1);
-  for (var i = 0; i < maxBits; i++) {
+  let bitValues = [];
+  let leftMostBit = Math.pow(2, maxBits-1);
+  for (let i = 0; i < maxBits; i++) {
     bitValues.push(leftMostBit);
     leftMostBit /= 2;
   }
     
-  for (var i = 0; i <= n; i++) {
-      var temp = i;
-      for (var j = 0; j < bitValues.length; j++) {
+  for (let i = 0; i <= n; i++) {
+      let temp = i;
+      for (let j = 0; j < bitValues.length; j++) {
         if (temp >= bitValues[j]) {
           count += 1;
           temp -= bitValues[j];

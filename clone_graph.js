@@ -13,11 +13,11 @@ function Node(d) {
   };
 }
 
-var n1 = Node(1);
-var n2 = Node(2);
-var n3 = Node(3);
-var n4 = Node(4);
-var n5 = Node(5);
+let n1 = Node(1);
+let n2 = Node(2);
+let n3 = Node(3);
+let n4 = Node(4);
+let n5 = Node(5);
 
 n1.neighbors = [n3, n5];
 n2.neighbors = [n3, n4, n5];
@@ -33,21 +33,21 @@ n5.neighbors = [n1, n2];
   n5--------------------
 */
 
-var connected = clone(n1);
+let connected = clone(n1);
 
 console.log(connected);
 
 // breadth first search
 function clone(root) {
   
-  var cloned = [];
-  var queue = [];
+  let cloned = [];
+  let queue = [];
   
   root.visited = true;
   queue.push(root);
   cloned.push(deepCopy(root));
   
-  var current;
+  let current;
   
   while (queue.length > 0) {
     current = queue.shift();
@@ -67,8 +67,8 @@ function clone(root) {
 }
 
 function deepCopy(obj) {
-  var returnObj = {};
-  for (var key in obj) {
+  let returnObj = {};
+  for (let key in obj) {
     returnObj[key] = obj[key];
   }
   return returnObj;

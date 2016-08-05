@@ -6,13 +6,13 @@ function Node(d) {
   };
 }
 
-var n1 = Node(1);
-var n2 = Node(2);
-var n3 = Node(3);
-var n4 = Node(4);
-var n5 = Node(5);
-var n6 = Node(6);
-var n7 = Node(7);
+let n1 = Node(1);
+let n2 = Node(2);
+let n3 = Node(3);
+let n4 = Node(4);
+let n5 = Node(5);
+let n6 = Node(6);
+let n7 = Node(7);
 
 n2.left = n1;
 n2.right = n3;

@@ -3,7 +3,7 @@ Compute the nth Fibonacci nber.
 0, 1, 1, 2, 3, 5, 8, 13 ...
 */
 
-var fibn = fib(5);
+let fibn = fib(5);
 
 console.log(fibn);
 

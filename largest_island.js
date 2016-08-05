@@ -36,10 +36,10 @@ X X 0 0
 1 0 0 0  
 The X characters indicate the largest connected component, as per the given definition. There are five cells in this component.
 */
-var grid;
-var checked = [];
+let grid;
+let checked = [];
 
-// var x = processData("5\n" +
+// let x = processData("5\n" +
 // "5\n" +
 // "1 1 0 0 0\n" +
 // "0 1 1 0 0\n" +
@@ -47,7 +47,7 @@ var checked = [];
 // "1 0 0 0 1\n" +
 // "0 1 0 1 1");
 
-// var x = processData("5\n" +
+// let x = processData("5\n" +
 // "4\n" +
 // "0 0 1 1\n" +
 // "0 0 1 0\n" +
@@ -59,9 +59,9 @@ var checked = [];
 
 function processData(input) {
   
-  var max = 0;
+  let max = 0;
   
-  var inputArr = input.split("\n");
+  let inputArr = input.split("\n");
   
   grid = inputArr.slice(2, (2 + inputArr[0])).map(function(el) {
     return el.split(" ").map(function(e) {
@@ -69,8 +69,8 @@ function processData(input) {
     });
   });
   
-  for (var row = 0; row < grid.length; row++) {
-    for (var col = 0; col < grid[row].length; col++) {
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
       if (grid[row][col] === 1 && checked.indexOf(string(row, col) < 0)) {
         max = checkNeighbors(row, col, max);
       }
@@ -90,25 +90,25 @@ function Coord(r, c) {
 
 function checkNeighbors(r, c, max) {
     
-  var queue = [];
+  let queue = [];
   
   queue.push(Coord(r, c));
   
   checked.push(string(r, c));
   
-  var row, col;
+  let row, col;
   
-  var localMax = 0;
+  let localMax = 0;
   
   while (queue.length > 0) {
-    var current = queue.shift();
+    let current = queue.shift();
     
     localMax += 1;
     
-    var top = current.r !== 0;
-    var bottom = current.r !== grid.length-1;
-    var left = current.c !== 0;
-    var right = current.c !== grid[0].length-1;
+    let top = current.r !== 0;
+    let bottom = current.r !== grid.length-1;
+    let left = current.c !== 0;
+    let right = current.c !== grid[0].length-1;
     
     // top
     if (top) {

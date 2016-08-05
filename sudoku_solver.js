@@ -4,10 +4,10 @@ https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714
 
 'use  strict';
 
-var _ = require('underscore');
+let _ = require('underscore');
 
 
-var good_sudoku = [
+let good_sudoku = [
                     [7,8,4,1,5,9,3,2,6], 
                     [5,3,9,6,7,2,8,4,1], 
                     [6,1,2,4,3,8,7,5,9], 
@@ -24,14 +24,14 @@ var good_sudoku = [
 // checkRow
 function checkRow(sudoku) {
 
-  for (var i = 0; i < sudoku.length; i++) {
-    var row = sudoku[i];
+  for (let i = 0; i < sudoku.length; i++) {
+    let row = sudoku[i];
 
-    var count = {};
+    let count = {};
 
-    for (var j = 0; j < row.length; j++) {
+    for (let j = 0; j < row.length; j++) {
 
-      var num = row[j];
+      let num = row[j];
 
       if (count[num]) {
         count[num] += 1;
@@ -47,7 +47,7 @@ function checkRow(sudoku) {
 
 }
 
-var rowCheck = checkRow(good_sudoku);
+let rowCheck = checkRow(good_sudoku);
 console.log('rowCheck: ' + rowCheck);
 
 // part 2 - all columns have unique digits 1-9
@@ -55,10 +55,10 @@ console.log('rowCheck: ' + rowCheck);
 
 function checkCol(sudoku) {
 
-  for (var i = 0; i < sudoku.length; i++) { // 0
-    var count = {};
+  for (let i = 0; i < sudoku.length; i++) { // 0
+    let count = {};
 
-    for (var j = 0; j < sudoku[i].length; j++) { // 0-8
+    for (let j = 0; j < sudoku[i].length; j++) { // 0-8
       if (count[sudoku[j][i]]) {
         return false;
       } else {
@@ -71,7 +71,7 @@ function checkCol(sudoku) {
   return true;
 }
 
-var colCheck = checkCol(good_sudoku);
+let colCheck = checkCol(good_sudoku);
 console.log('colCheck: ' + colCheck);
 
 
@@ -97,14 +97,14 @@ console.log('colCheck: ' + colCheck);
 function checkMatrix(sudoku) {
  
   // outer matrix
-  for (var g = 0; g <= 6; g+=3) { // row
-    for (var h = 0; h <= 6; h+=3) { // col
+  for (let g = 0; g <= 6; g+=3) { // row
+    for (let h = 0; h <= 6; h+=3) { // col
 
-      var count = {};
+      let count = {};
 
       // inner matrix
-      for (var i = h; i < h+3; i++) {
-        for (var j = g; j < g+3; j++) {
+      for (let i = h; i < h+3; i++) {
+        for (let j = g; j < g+3; j++) {
 
           console.log(`i: ${i}, j: ${j}`);
 
@@ -123,9 +123,9 @@ function checkMatrix(sudoku) {
   }
 
 // [0][0]
-//   for (var i = 0; i < 3; i++) { // 0-2
-//     var count = {};
-//     for (var j = 0; j < 3; j++) { // 0-2
+//   for (let i = 0; i < 3; i++) { // 0-2
+//     let count = {};
+//     for (let j = 0; j < 3; j++) { // 0-2
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -135,9 +135,9 @@ function checkMatrix(sudoku) {
 //   }
 
 // [0][1]
-//   for (var i = 0; i < 3; i++) { // 0-2
-//     var count = {};
-//     for (var j = 3; j < 6; j++) { // 3-5
+//   for (let i = 0; i < 3; i++) { // 0-2
+//     let count = {};
+//     for (let j = 3; j < 6; j++) { // 3-5
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -147,9 +147,9 @@ function checkMatrix(sudoku) {
 //   }
 
 // [0][2]
-//   for (var i = 0; i < 3; i++) { // 0-2
-//     var count = {};
-//     for (var j = 6; j < 9; j++) { // 6-8
+//   for (let i = 0; i < 3; i++) { // 0-2
+//     let count = {};
+//     for (let j = 6; j < 9; j++) { // 6-8
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -161,9 +161,9 @@ function checkMatrix(sudoku) {
 // ---------------------------------------
   
 // [1][0]
-//     for (var i = 3; i < 6; i++) { // 3-5
-//     var count = {};
-//     for (var j = 0; j < 3; j++) { // 0-2
+//     for (let i = 3; i < 6; i++) { // 3-5
+//     let count = {};
+//     for (let j = 0; j < 3; j++) { // 0-2
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -173,9 +173,9 @@ function checkMatrix(sudoku) {
 //   }
   
 // [1][1]
-//     for (var i = 3; i < 6; i++) { // 3-5
-//     var count = {};
-//     for (var j = 3; j < 6; j++) { // 3-5
+//     for (let i = 3; i < 6; i++) { // 3-5
+//     let count = {};
+//     for (let j = 3; j < 6; j++) { // 3-5
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -185,9 +185,9 @@ function checkMatrix(sudoku) {
 //   }
   
 // [1][2]
-//     for (var i = 3; i < 6; i++) { // 3-5
-//     var count = {};
-//     for (var j = 6; j < 9; j++) { // 6-8
+//     for (let i = 3; i < 6; i++) { // 3-5
+//     let count = {};
+//     for (let j = 6; j < 9; j++) { // 6-8
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -199,9 +199,9 @@ function checkMatrix(sudoku) {
 // ---------------------------------------
   
 // [2][0]
-//     for (var i = 6; i < 9; i++) { // 6-8
-//     var count = {};
-//     for (var j = 0; j < 3; j++) { // 0-2
+//     for (let i = 6; i < 9; i++) { // 6-8
+//     let count = {};
+//     for (let j = 0; j < 3; j++) { // 0-2
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -211,9 +211,9 @@ function checkMatrix(sudoku) {
 //   }
   
 // [2][1]
-//     for (var i = 6; i < 9; i++) { // 6-8
-//     var count = {};
-//     for (var j = 3; j < 6; j++) { // 3-5
+//     for (let i = 6; i < 9; i++) { // 6-8
+//     let count = {};
+//     for (let j = 3; j < 6; j++) { // 3-5
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -223,9 +223,9 @@ function checkMatrix(sudoku) {
 //   }  
 
 // [2][2]
-//     for (var i = 6; i < 9; i++) { // 6-8
-//     var count = {};
-//     for (var j = 6; j < 9; j++) { // 6-8
+//     for (let i = 6; i < 9; i++) { // 6-8
+//     let count = {};
+//     for (let j = 6; j < 9; j++) { // 6-8
 //       if (count[sudoku[i][j]]) {
 //         return false;
 //       } else {
@@ -240,5 +240,5 @@ function checkMatrix(sudoku) {
 }
 
 
-var matrixCheck = checkMatrix(good_sudoku);
+let matrixCheck = checkMatrix(good_sudoku);
 console.log('matrixCheck: ' + matrixCheck);
