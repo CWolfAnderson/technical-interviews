@@ -44,9 +44,3 @@ function getTopVote(candidates, time) {
   }
   return highestName;
 }
-
-
-
-
-
-
