@@ -1,14 +1,16 @@
+'use strict';
+
 function Node(d) {
   return {
     data: d
   };
 }
 
-var n1 = Node(1);
-var n2 = Node(2);
-var n3 = Node(3);
-var n4 = Node(4);
-var n5 = Node(5);
+let n1 = Node(1);
+let n2 = Node(2);
+let n3 = Node(3);
+let n4 = Node(4);
+let n5 = Node(5);
 
 n1.neighbors = [n3, n5];
 n2.neighbors = [n3, n4, n5];
@@ -37,12 +39,12 @@ bfs(n1);
 // breadth first search
 function bfs(root) {
   
-  var queue = [];
+  let queue = [];
   
   root.visited = true;
   queue.push(root);
   
-  var current;
+  let current;
   
   while (queue.length > 0) {
     current = queue.shift();
